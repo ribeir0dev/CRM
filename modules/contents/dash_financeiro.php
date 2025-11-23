@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 require_once __DIR__.'/../../includes/config.php';
 require_once __DIR__.'/../../includes/db.php';
 
-// FLASH MESSAGE
+// Flash Message
 $msg = '';
 if (isset($_GET['msg'])) {
     if ($_GET['msg'] === 'entrada_sucesso') $msg = 'Entrada cadastrada com sucesso!';
@@ -13,7 +13,7 @@ if (isset($_GET['msg'])) {
     if ($_GET['msg'] === 'saida_excluida') $msg = 'Saída excluída com sucesso!';
 }
 
-// EXCLUSÃO
+// Exclusão
 if (isset($_GET['del_entrada'])) {
     $id = intval($_GET['del_entrada']);
     $pdo->prepare("DELETE FROM financeiro_entradas WHERE id = ? LIMIT 1")->execute([$id]);
@@ -107,7 +107,7 @@ $clientes = $pdo->query("SELECT id, nome FROM clientes ORDER BY nome")->fetchAll
 $tipos_servico = $pdo->query("SELECT id, nome FROM tipos_servico ORDER BY nome")->fetchAll();
 ?>
 
-<div class="financeiro-main px-0 px-md-4 py-4 mx-auto" style="max-width: 1050px;">
+<div class="financeiro-main pt-3 px-2 px-md-4">
   <!-- Flash Message -->
   <?php if($msg): ?>
     <div id="flashMsg" class="alert alert-success animate__animated animate__fadeInDown" style="max-width:350px;position:relative;z-index:10;">
@@ -310,3 +310,23 @@ if(document.getElementById('flashMsg')){
   }, 2600);
 }
 </script>
+<style>
+.financeiro-main {
+  margin-left: 0;
+  margin-right: 0;
+  width: 100% !important;
+  max-width: none !important;
+  box-sizing: border-box;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+@media (min-width: 991px) {
+  .financeiro-main {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+.table-responsive, .table {
+  width: 100% !important;
+}
+</style>

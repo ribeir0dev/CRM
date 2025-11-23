@@ -1,3 +1,29 @@
+.clientes-main {
+  margin-left: 0;
+  margin-right: 0;
+  width: 100% !important;
+  max-width: none !important;
+  box-sizing: border-box;
+}
+.table-responsive {
+  width: 100% !important;
+}
+.table {
+  width: 100% !important;
+  margin-bottom: 0;
+  background: #fff;
+  border-radius: 8px;
+}
+/* Tira qualquer centralização herdada */
+body, html, .col, .main-content, .container, .content-module {
+  margin: 0 !important;
+  padding: 0 !important;
+  max-width: none !important;
+}
+
+
+
+
 .bg-dash{
     background: #f0f0f0;
 }
@@ -32,6 +58,17 @@
 .profile-drop a{display:block;color:#6f6bef;padding:8px 17px;text-decoration:none;font-weight:500;font-size:15px;}
 .profile-drop a:hover{background:#f4f4fd;}
 .main-module{min-height:460px;margin-top:8px;}
+
+.financeiro-main, .clientes-page, .main-content-module {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: none !important;
+    width: 100% !important;
+    box-sizing: border-box;
+}
+.table-responsive {
+    width: 100%;
+}
 
 
 /*Navbar*/

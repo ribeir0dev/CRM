@@ -4,16 +4,16 @@ require_once __DIR__.'/../../includes/db.php';
 $clientes = $pdo->query("SELECT id, nome, telefone, email FROM clientes ORDER BY nome")->fetchAll();
 ?>
 
-<div class="clientes-page" style="padding-top: 16px;">
-  <div class="d-flex justify-content-between align-items-center mb-2 px-1 px-md-2">
+<div class="clientes-main pt-2 px-0 px-md-3">
+  <div class="d-flex justify-content-between align-items-center mb-3">
     <h3 class="mb-0 fw-semibold" style="font-size:1.18rem;">Clientes cadastrados</h3>
     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalNovoCliente" style="font-size:1rem;">
       <i class="bi bi-plus-lg"></i> Adicionar novo cliente
     </button>
   </div>
 
-  <div class="table-responsive px-1 px-md-2">
-    <table class="table table-hover align-middle w-100 mb-0 rounded-2" style="background:#fff;">
+  <div class="table-responsive">
+    <table class="table table-hover align-middle w-100 mb-0" style="background:#fff;">
       <thead class="table-light">
         <tr>
           <th style="min-width:120px;">Nome</th>
@@ -78,25 +78,28 @@ $clientes = $pdo->query("SELECT id, nome, telefone, email FROM clientes ORDER BY
   </div>
 </div>
 
+<!-- CSS LOCAL -->
 <style>
-.clientes-page {
+.clientes-main {
   margin-left: 0;
   margin-right: 0;
-  max-width: none;
+  width: 100% !important;
+  max-width: none !important;
+  box-sizing: border-box;
 }
 .table-responsive {
-  width: 100%;
-  /* garante preenchimento total do espaço */
+  width: 100% !important;
 }
 .table {
-  width: 100%;
-  background: #fff;
-  border-radius: 7px;
+  width: 100% !important;
   margin-bottom: 0;
+  background: #fff;
+  border-radius: 8px;
 }
-@media (max-width: 991px) {
-  .clientes-page, .table-responsive {
-    padding: 0 !important;
-  }
+/* Tira qualquer centralização herdada */
+body, html, .col, .main-content, .container, .content-module {
+  margin: 0 !important;
+  padding: 0 !important;
+  max-width: none !important;
 }
 </style>
