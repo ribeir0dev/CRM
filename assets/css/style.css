@@ -1,0 +1,317 @@
+body {
+    margin: 0;
+    background: #f0f0f0;
+    font-family: 'Inter', Arial, sans-serif;
+    color: #222;
+    overflow-x: hidden;
+}
+
+.header {
+    width: 100vw;
+    padding: 18px 40px 10px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: none;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+.logo-icon {
+    width: 64px;
+    height: 64px;
+    margin-right: 10px;
+}
+.logo-text {
+    font-size: 18px;
+    font-weight: 600;
+    background: linear-gradient(93deg,rgba(112, 74, 253, 1) 0%, rgba(51, 171, 255, 1) 60%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    font-weight: bold;
+    letter-spacing: 0.4px;
+}
+
+.logo-alt-text{
+    font-size: 14px;
+    font-weight: 400;
+    color: #383838;
+    padding-left: 20px;
+}
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+/* Login Card */
+main {
+    min-height: 78vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 2px 18px #0001;
+    padding: 38px 32px 32px 32px;
+    width: 365px;
+    max-width: 90%;
+    text-align: center;
+}
+.login-card h1 {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    text-align: left;
+}
+.sub-text {
+    text-align: left;
+    font-size: 15px;
+    color: #868ca0;
+    margin-bottom: 18px;
+}
+.login-buttons {
+    display: flex;
+    gap: 11px;
+    margin: 0 0 10px 0;
+}
+.social-btn {
+    flex: 1;
+    padding: 10px 0;
+    background: #f3f5fa;
+    border: 1px solid #e2e2e2;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #222;
+    transition: background .1s;
+    cursor: pointer;
+}
+.social-btn.facebook { color: #435796; }
+.social-btn.google { color: #e6572e; }
+.social-btn:hover { background: #e7e9f5; }
+.or-divider {
+    font-size: 13px;
+    color: #b0b4c1;
+    margin: 10px 0 14px 0;
+}
+.form-group {
+    text-align: left;
+    margin-bottom: 12px;
+}
+.form-group label {
+    font-size: 14px;
+    color: #535664;
+    margin-bottom: 5px;
+    display: block;
+}
+.form-group input {
+    width: 100%;
+    padding: 11px 10px;
+    border-radius: 8px;
+    border: 1px solid #e2e6ed;
+    background: #f7f8fa;
+    color: #24263d;
+    font-size: 15px;
+    outline: none;
+}
+.pw-group {
+    position: relative;
+}
+.pw-toggle {
+    position: absolute;
+    right: 11px;
+    top: 38px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #868ca0;
+    user-select: none;
+}
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 13px;
+}
+.forgot-link {
+    color: #5a53eb;
+    text-decoration: none;
+}
+.forgot-link:hover {
+    text-decoration: underline;
+}
+.login-btn {
+    width: 100%;
+    padding: 13px 0;
+    border-radius: 8px;
+    border: none;
+    margin-top: 14px;
+    background: linear-gradient(93deg,rgba(112, 74, 253, 1) 20%, rgba(51, 171, 255, 1) 100%);
+    color: #fff;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .22s;
+}
+.footer-link {
+    font-size: 14px;
+    margin-top: 17px;
+}
+.footer-link a {
+    color: rgba(51, 171,255, 1);
+    text-decoration: none;
+    font-weight: 500;
+}
+.footer-link a:hover {
+    text-decoration: underline;
+}
+footer {
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: none;
+    color: #383838;
+    font-size: 15px;
+    padding: 27px 40px 7px 40px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+footer .footer-right a {
+    color: #383838;
+    text-decoration: none;
+    margin: 0 3px;
+}
+
+.dashboard-grid {
+    display: flex;
+    min-height: 92vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 260px;
+    background: #fff;
+    border-radius: 23px;
+    margin: 20px 18px 20px 0;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 20px 20px 20px;
+    box-shadow: 0 2px 16px #ddd1;
+}
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.sidebar-menu ul, .sidebar-projects ul {
+    padding: 0;
+    list-style: none;
+}
+.sidebar-menu ul li {
+    margin: 16px 0;
+    font-size: 16px;
+    color: #888;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: color 0.18s;
+}
+.sidebar-menu ul li.active, .sidebar-menu ul li:hover {
+    color: #6563fe;
+    font-weight: 600;
+}
+.menu-icon { margin-right: 8px; }
+.sidebar-subtitle {
+    margin:22px 0 5px 0;
+    color: #b6b8cb;
+    font-size: 12px;
+    letter-spacing: 0.9px;
+}
+.project-icon { width:12px; height:12px; border-radius:3px; display:inline-block; margin-right:6px; }
+.project-icon.green { background: #61cd9b;}
+.project-icon.purple { background: #ba77fa;}
+.project-icon.blue { background: #6bb8fc;}
+.sidebar-bottom { margin-top:auto; }
+.trial-box {
+    background: #fafaff;
+    border-radius: 11px;
+    padding: 13px 14px;
+    font-size: 14px;
+    margin-top: 17px;
+    box-shadow: 0 1px 6px #ddd1;
+}
+.trial-title { color: #7c7ad9; font-weight: 700;}
+.trial-progress {
+    background: #eceeff;
+    border-radius: 7px;
+    margin:6px 0 7px;
+    width:100%;
+    height:7px;
+    overflow: hidden;
+    position: relative;
+}
+.trial-progress>div {
+    height:100%;
+    border-radius:7px;
+    background: linear-gradient(90deg,#6b8cff,#b9a7fd);
+    width:53%;
+    position: absolute;
+    left:0; top:0;
+}
+.trial-days {color: #888; font-size:13px;}
+.trial-link { display:block;color:#6563fe;text-decoration: none;font-size:13px;margin-top:5px;}
+
+/* Conteúdo principal */
+.dashboard-main { flex: 1; margin: 34px 18px 18px 0; }
+.main-header { margin-bottom:24px; }
+.top-nav { display:flex; justify-content: space-between; align-items: center; font-size:15px;}
+.top-actions { display:flex; gap:13px; align-items:center;}
+.dash-btn { background: #eceeff; border:none; border-radius:7px; color:#7c7ad9; padding:8px 17px; cursor:pointer;font-weight:600;}
+.profile-thumb { width:39px; height:39px; border-radius:20px; background:#eee url('/flowdesk/assets/images/profile.jpg') center/cover; }
+.main-welcome { text-align: center; margin: 28px 0 32px 0;}
+.welcome-image { height:80px; margin-bottom:10px;}
+.welcome-title {font-size:28px;font-weight:700;margin: 0;}
+.hl {color:#6563fe;}
+.welcome-desc {color:#8b90aa; margin:9px auto;}
+.welcome-cards { display:flex; gap:25px; justify-content:center; margin-top:25px; }
+.welcome-card {
+    background: linear-gradient(95deg,#efedfa 70%,#eeeffc 100%);
+    border-radius:16px;
+    box-shadow: 0 2px 7px #dadbee36;
+    padding:23px 27px;
+    min-width:230px;
+    flex: 1;
+}
+.card-title {font-size:16px;font-weight:600;margin-bottom:7px;}
+.card-desc {font-size:14px;color:#8b90aa;margin-bottom:14px;}
+.card-btn {
+    background: #6563fe;
+    color: #fff;
+    border: none;
+    padding: 9px 2vw;
+    border-radius: 7px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor:pointer;
+    box-shadow: 0 1px 5px #6e6eec22;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+    .header,
+    footer { padding: 12px; font-size: 12px; }
+    .login-card { padding: 14px 3vw 14px 3vw; }
+    .logo-text { font-size: 20px; }
+    .dashboard-grid{flex-direction:column;}
+    .sidebar {width:95vw; margin-right:0;flex-direction:row;align-items:center;}
+    .dashboard-main{margin-left:0;}
+    .welcome-cards {flex-direction:column;gap:16px;}
+}
