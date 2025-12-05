@@ -10,9 +10,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->execute([$id]);
     }
 
-    header('Location: /flowdesk_novo/modules/painel.php?mod=financeiro&ok_fixo_removido=1');
+    header('Location: /modules/painel.php?mod=financeiro&ok_fixo_removido=1');
     exit;
 }
 
-header('Location: /flowdesk_novo/modules/painel.php?mod=financeiro');
+header('Location: /modules/painel.php?mod=financeiro');
 exit;

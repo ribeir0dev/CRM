@@ -5,7 +5,7 @@ if (session_status() !== PHP_SESSION_ACTIVE)
 require_once __DIR__ . '/../../inc/conf/db.php';
 
 if (!isset($_SESSION['user_id'])) {
-  header('Location: /flowdesk_novo/index.php');
+  header('Location: index.php');
   exit;
 }
 
@@ -57,7 +57,7 @@ foreach ($rows as $r) {
 $partes_nome = preg_split('/\s+/', trim($cliente['nome']));
 $primeiro_nome = $partes_nome[0] ?? '';
 $ultimo_nome = count($partes_nome) > 1 ? end($partes_nome) : '';
-$foto = $cliente['foto_perfil'] ?: '/flowdesk_novo/assets/img/avatar.png';
+$foto = $cliente['foto_perfil'] ?: '/assets/img/avatar.png';
 ?>
 
 <!-- Topbar interna do cliente (dentro do main do painel) -->
@@ -273,7 +273,7 @@ $reg = $blocos['registro_br']['dados'] ?? [];
     ?>
     <a>Cliente Cadastrado em: <?php echo date('d/m/Y', strtotime($dataCadastro)); ?>
     </a>
-    <a href="/flowdesk_novo/modules/content/relatorio_cliente.php?token=<?= urlencode($cliente['token_publico']) ?>"
+    <a href="/modules/content/relatorio_cliente.php?token=<?= urlencode($cliente['token_publico']) ?>"
       target="_blank" class="btn btn-outline-secondary btn-sm">
       Gerar link de relatório<i class="lni lni-unlink-2-angular-eft ms-2"></i>
     </a>

@@ -10,7 +10,7 @@ $listaClientes = $stmtCli->fetchAll(PDO::FETCH_ASSOC);
 <div class="modal fade" id="modalNovaEntrada" tabindex="-1" aria-labelledby="modalNovaEntradaLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
-      <form method="post" action="/flowdesk_novo/actions/adicionar_entrada.php" id="form-nova-entrada">
+      <form method="post" action="/actions/adicionar_entrada.php" id="form-nova-entrada">
         <div class="modal-header">
           <h5 class="modal-title" id="modalNovaEntradaLabel">Adicionar entrada</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>

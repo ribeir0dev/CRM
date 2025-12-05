@@ -44,7 +44,7 @@ $blocos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <head>
   <meta charset="UTF-8">
   <title>Relatório de <?= htmlspecialchars($primeiroNome) ?></title>
-  <link rel="stylesheet" href="/flowdesk_novo/assets/css/login.css">
+  <link rel="stylesheet" href="/assets/css/login.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 

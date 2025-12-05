@@ -15,7 +15,7 @@ http_response_code(404);
 text-align:center;
 }
 body {
-  background-color: #D4D9ED;
+  background-color: #e0e4ff;
 }
 .cont_principal {
 position: absolute;  
@@ -62,7 +62,7 @@ transition: all 0.5s;
   height: 120%;
 top:25px;
 right: -340px;
-  background-color: #8A65DF;
+  background-color: #e0e4ff;
 box-shadow: 0px 0px  60px  20px  rgba(137,100,222,0.5);
 -webkit-transition: all 0.5s;
   transition: all 0.5s;
@@ -74,7 +74,7 @@ box-shadow: 0px 0px  60px  20px  rgba(137,100,222,0.5);
   height: 300px;
 right:-10%;
 bottom:-301px;
- background-color: #8B65E4;
+ background-color: #e0e4ff;
 box-shadow: 0px 0px 60px 10px rgba(131, 95, 214, 0.5),0px 0px  20px  0px  rgba(0,0,0,0.1);
   z-index:5;
 transition: all 0.5s;
@@ -190,7 +190,7 @@ transform: rotate(-20deg);
 <div class="cont_error">
   
 <h1>Oops</h1>  
-  <p>The Page you're looking for isn't here.</p>
+  <p>A página que você está procurando não existe ou você não possui acesso.</p>
   </div>
 <div class="cont_aura_1"></div>
 <div class="cont_aura_2"></div>

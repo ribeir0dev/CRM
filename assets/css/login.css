@@ -1,108 +1,118 @@
     body {
-      background: url('http://localhost/flowdesk_novo/assets/img/bg_login_page.webp') no-repeat center/auto;
+      background: url('http://flowdesk.site/assets/img/bg_login_page.webp') no-repeat center/auto;
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-    }
-    .login-container {
-      border-radius: 32px;
-      overflow: hidden;
-      box-shadow: 0 0 20px #0005;
-      max-width: 900px;
-      margin: auto;
-      background: #232427;
-      display: flex;
-    }
-    .form-side {
-      background: #fff;
-      padding: 3rem 2.5rem;
-      flex: 1 1 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-        min-height: 800px; /* ajuste para o tamanho do maior formulário */
-    }
-    .art-side {
-      flex: 1 1 0;
-      position: relative;
-      background: url('http://localhost/flowdesk_novo/assets/img/bg_login.png') no-repeat center/cover;
-      display: flex;
-      align-items: flex-end;
-      padding: 2rem;
-    }
-    .art-caption {
-      background: rgba(255,255,255,0.15);
-      color: #eee;
-      border-radius: 18px;
-      padding: 1rem 1.5rem;
-      font-size: 0.8rem;
-      margin-bottom: 2rem;
-      width: 100%;
-      text-align: center;
-      backdrop-filter: blur(4px);
+      cursor: url('https://cdn.snappages.com.br/imagens/component-assets/Cursor-degrade-roxo-seta.svg') 0 0, auto;
+
     }
 
-.super-tabs {
-  width: 370px;                /* ajuste conforme necessário para seu layout exato */
-  display: flex;
-  gap: 0;                      /* não deixa espaço extra entre os botões */
-  background: #fff;
-  border-radius: 2rem;
-  border: 1.5px solid #dfdfdf;
-  padding: 3px;
-}
-.super-tab {
-  flex: 1;
-  height: 30px;
-  font-size: 1rem;
-  font-weight: 500;
-  border: none;
-  border-radius: 2rem;
-  background: transparent;
-  color: #2790F5;
-  transition: background .2s,color .2s;
-  margin: 0;
-  outline: none;
-  box-shadow: none;
-}
-.super-tab.active {
-  background: #2790F5;
-  color: #fff;
-}
-.super-tab:not(.active) {
-  background: #fff;
-  color: #2790F5;
-}
-.super-tab:focus {
-  outline: none;
-}
+      .login-container {
+            padding-top: 50px;
+        }
+
+        .form-section {
+            background: #232427;
+        }
+
+        .hero-section {
+            background: url(/assets/img/bg_login.png) center;
+            background-size: cover;
+        }
+
+        .form-control {
+            background-color: #202124;
+            border: 1px solid #232427;
+            color: var(--bs-light);
+        }
+
+        .form-control::placeholder {
+            color: #9ca3af;
+        }
+
+        .form-control:focus {
+            background-color: #202124;
+            color: var(--bs-light);
+            border-color: #3a3b3f;
+            box-shadow: 0 0 0 .2rem rgba(104, 115, 125, .4);
+        }
+
+        .input-group-text {
+            background-color: #202124;
+            border: 1px solid #232427;
+            color: var(--bs-light);
+        }
+
+        .bg-form {
+            background: #232427;
+        }
+
+        .super-tabs {
+            width: 370px;
+            /* ajuste conforme necessário para seu layout exato */
+            display: flex;
+            gap: 0;
+            /* não deixa espaço extra entre os botões */
+            background: #202124;
+            border-radius: 2rem;
+            border: 1.5px solid #45474E;
+            padding: 3px;
+        }
+
+        .super-tab {
+            flex: 1;
+            height: 30px;
+            font-size: 1rem;
+            font-weight: 500;
+            border: none;
+            border-radius: 2rem;
+            background: transparent;
+            color: #2790F5;
+            transition: background .2s, color .2s;
+            margin: 0;
+            outline: none;
+            box-shadow: none;
+        }
+
+        .super-tab.active {
+            background: #2790F5;
+            color: #fff;
+        }
+
+        .super-tab:not(.active) {
+            background: #202124;
+            color: #2790F5;
+        }
+
+        .super-tab:focus {
+            outline: none;
+        }
 
 
-    .btn-social {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: .75rem;
-      font-weight: 500;
-      margin-bottom: .75rem;
-      border-radius: 24px;
-      padding: .75rem 1rem;
-    }
-    .btn-google {
-      color: #444;
-      border: 1.5px solid #d3d3d3;
-      background: #fff;
-    }
-    .btn-apple {
-      background: #19191a;
-      color: #fff;
-    }
-    .tab-btn-group .btn {
-      border-radius: 24px;
-      width: 50%;
-    }
+        .btn-social {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: .75rem;
+            font-weight: 500;
+            margin-bottom: .75rem;
+            border-radius: 24px;
+            padding: .75rem 1rem;
+        }
+
+
+        .tab-btn-group .btn {
+            border-radius: 24px;
+            width: 50%;
+        }
+
     @media (max-width: 800px) {
-      .login-container { flex-direction: column; }
-      .art-side { min-height: 220px; }
+      .login-container {
+        flex-direction: column;
+      }
+
+      .art-side {
+        min-height: 220px;
+      }
     }

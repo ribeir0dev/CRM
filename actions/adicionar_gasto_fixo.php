@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $obs          = trim($_POST['observacoes'] ?? '');
 
     if ($tipo_gasto === '' || $valor <= 0) {
-        header('Location: /flowdesk_novo/modules/painel.php?mod=financeiro&erro_fixo=1');
+        header('Location: /modules/painel.php?mod=financeiro&erro_fixo=1');
         exit;
     }
 
@@ -39,9 +39,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $obs
     ]);
 
-    header('Location: /flowdesk_novo/modules/painel.php?mod=financeiro&ok_fixo=1');
+    header('Location: /modules/painel.php?mod=financeiro&ok_fixo=1');
     exit;
 }
 
-header('Location: /flowdesk_novo/modules/painel.php?mod=financeiro');
+header('Location: /modules/painel.php?mod=financeiro');
 exit;

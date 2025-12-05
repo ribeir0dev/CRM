@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $cliente_id = isset($_POST['cliente_id']) ? (int)$_POST['cliente_id'] : 0;
 
     if ($cliente_id <= 0 || empty($_FILES['foto']['name'])) {
-        header('Location: /flowdesk_novo/modules/painel.php?mod=cliente&id='.$cliente_id);
+        header('Location: /modules/painel.php?mod=cliente&id='.$cliente_id);
         exit;
     }
 
@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $ext_permitidas = ['jpg','jpeg','png'];
     $ext = strtolower(pathinfo($_FILES['foto']['name'], PATHINFO_EXTENSION));
     if (!in_array($ext, $ext_permitidas) || $_FILES['foto']['error'] !== UPLOAD_ERR_OK) {
-        header('Location: /flowdesk_novo/modules/painel.php?mod=cliente&id='.$cliente_id.'&foto=erro');
+        header('Location: /modules/painel.php?mod=cliente&id='.$cliente_id.'&foto=erro');
         exit;
     }
 
@@ -26,14 +26,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (move_uploaded_file($_FILES['foto']['tmp_name'], $destino)) {
-        $caminho_db = '/flowdesk_novo/uploads/clientes/' . $nome_arquivo;
+        $caminho_db = '/uploads/clientes/' . $nome_arquivo;
         $stmt = $pdo->prepare("UPDATE clientes SET foto_perfil = ? WHERE id = ?");
         $stmt->execute([$caminho_db, $cliente_id]);
     }
 
-    header('Location: /flowdesk_novo/modules/painel.php?mod=cliente&id='.$cliente_id);
+    header('Location: /modules/painel.php?mod=cliente&id='.$cliente_id);
     exit;
 }
 
-header('Location: /flowdesk_novo/modules/painel.php?mod=clientes');
+header('Location: /modules/painel.php?mod=clientes');
 exit;

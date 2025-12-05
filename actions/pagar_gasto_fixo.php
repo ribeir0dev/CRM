@@ -5,7 +5,7 @@ require_once __DIR__ . '/../inc/conf/db.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = (int)($_POST['id'] ?? 0);
     if ($id <= 0) {
-        header('Location: /flowdesk_novo/modules/painel.php?mod=financeiro&erro_fixo=1');
+        header('Location: /modules/painel.php?mod=financeiro&erro_fixo=1');
         exit;
     }
 
@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $f = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if (!$f) {
-        header('Location: /flowdesk_novo/modules/painel.php?mod=financeiro&erro_fixo=1');
+        header('Location: /modules/painel.php?mod=financeiro&erro_fixo=1');
         exit;
     }
 
@@ -54,9 +54,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    header('Location: /flowdesk_novo/modules/painel.php?mod=financeiro&ok_fixo_pago=1');
+    header('Location: /modules/painel.php?mod=financeiro&ok_fixo_pago=1');
     exit;
 }
 
-header('Location: /flowdesk_novo/modules/painel.php?mod=financeiro');
+header('Location: /modules/painel.php?mod=financeiro');
 exit;

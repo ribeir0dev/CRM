@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $obs       = trim($_POST['observacoes'] ?? '');
 
     if ($id <= 0 || $nome === '' || $whatsapp === '' || $email === '') {
-        header('Location: /flowdesk_novo/modules/painel.php?mod=cliente&id='.$id.'&erro=1');
+        header('Location: /modules/painel.php?mod=cliente&id='.$id.'&erro=1');
         exit;
     }
 
@@ -23,9 +23,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     ');
     $stmt->execute([$nome, $whatsapp, $email, $status, $genero, $obs, $id]);
 
-    header('Location: /flowdesk_novo/modules/painel.php?mod=cliente&id='.$id.'&ok=1');
+    header('Location: /modules/painel.php?mod=cliente&id='.$id.'&ok=1');
     exit;
 }
 
-header('Location: /flowdesk_novo/modules/painel.php?mod=clientes');
+header('Location: /modules/painel.php?mod=clientes');
 exit;

@@ -5,7 +5,7 @@
 <div class="modal fade" id="modalEditarCliente" tabindex="-1" aria-labelledby="modalEditarClienteLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
-      <form method="post" action="/flowdesk_novo/actions/editar_cliente.php" id="form-editar-cliente">
+      <form method="post" action="/actions/editar_cliente.php" id="form-editar-cliente">
         <div class="modal-header">
           <h5 class="modal-title" id="modalEditarClienteLabel">Editar cliente</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>

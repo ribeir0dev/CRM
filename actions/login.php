@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             setcookie(session_name(), session_id(), time() + 60 * 60 * 24 * 30, "/");
         }
 
-        header('Location: /flowdesk_novo/modules/painel.php');
+        header('Location: /modules/painel.php');
         exit;
     } else {
         echo 'Login ou senha inválido.';
@@ -55,5 +55,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 // Se não for POST, volta para o login
-header('Location: /flowdesk_novo/index.php');
+header('Location: /index.php');
 exit;

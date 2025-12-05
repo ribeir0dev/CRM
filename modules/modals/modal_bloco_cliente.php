@@ -10,7 +10,7 @@ $cliente_id = (int) ($_GET['id'] ?? 0); // ou outra forma de obter o ID do clien
   aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
-      <form method="post" action="/flowdesk_novo/actions/salvar_bloco_cliente.php" id="form-bloco-cliente">
+      <form method="post" action="/actions/salvar_bloco_cliente.php" id="form-bloco-cliente">
         <input type="hidden" name="cliente_id" id="blocoClienteId" value="<?= $cliente_id ?>">
         <input type="hidden" name="slug" id="blocoSlug" value="">
 
@@ -104,7 +104,7 @@ $cliente_id = (int) ($_GET['id'] ?? 0); // ou outra forma de obter o ID do clien
     }
 
     // Carrega dados atuais via AJAX
-    fetch('/flowdesk_novo/actions/carregar_bloco_cliente.php?cliente_id=<?= $cliente_id ?>&slug=' + encodeURIComponent(slug))
+    fetch('/actions/carregar_bloco_cliente.php?cliente_id=<?= $cliente_id ?>&slug=' + encodeURIComponent(slug))
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (data) {
         if (!data) return;

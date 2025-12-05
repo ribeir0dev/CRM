@@ -316,7 +316,7 @@ $total_fixos_mes = (float) $stmt->fetchColumn();
                                                     <i class="lni lni-checkmark"></i>
                                                 </button>
                                             <?php endif; ?>
-                                            <form method="post" action="/flowdesk_novo/actions/excluir_entrada.php"
+                                            <form method="post" action="/actions/excluir_entrada.php"
                                                 class="d-inline"
                                                 onsubmit="return confirm('Deseja realmente excluir esta entrada?');">
                                                 <input type="hidden" name="id" value="<?= (int) $e['id'] ?>">
@@ -374,7 +374,7 @@ $total_fixos_mes = (float) $stmt->fetchColumn();
                                         <td><?= htmlspecialchars($s['descricao']) ?></td>
                                         <td class="text-end">R$ <?= number_format($s['valor'], 2, ',', '.') ?></td>
                                         <td class="text-end">
-                                            <form method="post" action="/flowdesk_novo/actions/excluir_saida.php"
+                                            <form method="post" action="/actions/excluir_saida.php"
                                                 class="d-inline"
                                                 onsubmit="return confirm('Deseja realmente excluir esta saída?');">
                                                 <input type="hidden" name="id" value="<?= (int) $s['id'] ?>">
@@ -451,7 +451,7 @@ $total_fixos_mes = (float) $stmt->fetchColumn();
                             </td>
                             <td class="text-end">
                                 <?php if (!$foiPagoNesteMes): ?>
-                                    <form method="post" action="/flowdesk_novo/actions/pagar_gasto_fixo.php" class="d-inline"
+                                    <form method="post" action="/actions/pagar_gasto_fixo.php" class="d-inline"
                                         onsubmit="return confirm('Confirmar pagamento deste gasto fixo neste mês?');">
                                         <input type="hidden" name="id" value="<?= (int) $f['id'] ?>">
                                         <button class="btn btn-success btn-sm">
@@ -460,7 +460,7 @@ $total_fixos_mes = (float) $stmt->fetchColumn();
                                     </form>
                                 <?php endif; ?>
 
-                                <form method="post" action="/flowdesk_novo/actions/remover_gasto_fixo.php" class="d-inline"
+                                <form method="post" action="/actions/remover_gasto_fixo.php" class="d-inline"
                                     onsubmit="return confirm('Remover este gasto fixo permanentemente?');">
                                     <input type="hidden" name="id" value="<?= (int) $f['id'] ?>">
                                     <button class="btn btn-outline-danger btn-sm">

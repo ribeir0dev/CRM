@@ -4,22 +4,12 @@ session_start();
 include __DIR__ . '/../inc/headers/painel.php';
 
 if (!isset($_SESSION['user_id'])) {
-  header('Location: /flowdesk_novo/index.php');
+  header('Location: index.php');
   exit;
 }
 $user_name = $_SESSION['user_nome'] ?? 'Usuário';
-$mod = $_GET['mod'] ?? 'home';
+$mod = $_GET['mod'] ?? 'dashboard';
 ?>
-<!-- Topbar apenas mobile -->
-<div class="d-flex align-items-center justify-content-between px-3 py-2 d-lg-none" id="mobileTopbar">
-  <div class="d-flex align-items-center">
-    <img src="/flowdesk_novo/assets/img/icon.png" alt="Logo" width="32" class="me-2" />
-    <span class="fw-bold text-light">FlowDesk</span>
-  </div>
-  <button class="btn btn-light" id="menuToggle" aria-label="Abrir menu" style="box-shadow: none;">
-    <i class="bi bi-list" style="font-size: 1rem; color: #fff;"></i>
-  </button>
-</div>
 
 
 <div class="container-fluid painel-pai">
@@ -28,7 +18,7 @@ $mod = $_GET['mod'] ?? 'home';
       id="sidebar">
       <div>
         <div class="d-flex align-items-center justify-content-center py-4">
-          <img src="/flowdesk_novo/assets/img/icon.png" alt="Logo" width="40" class="me-2" />
+          <img src="/assets/img/icon.png" alt="Logo" width="40" class="me-2" />
           <span class="text-bg-d fs-4">FlowDesk</span>
         </div>
         <div class="text-center text-light mb-3 fs-6 d-none d-lg-block">Sistema de Gerenciamento CRM</div>
@@ -68,15 +58,15 @@ $mod = $_GET['mod'] ?? 'home';
       </div>
       <div class="sidebar-footer text-center text-light p-3 small">
         <div>&copy; 2025 FlowDesk</div>
-        <div><a href="#" class="text-light text-decoration-underline">Termos de uso</a> • <a href="#"
-            class="text-light text-decoration-underline">Política de privacidade</a></div>
+        <div><a href="#" class="text-light text-decoration-underline fs-10">Termos de uso</a> • <a href="#"
+            class="text-light text-decoration-underline fs-10">Política de privacidade</a></div>
       </div>
     </nav>
 
     <?php
     // Definições de módulo e avatar
     $user_name = $_SESSION['user_nome'] ?? 'Usuário';
-    $user_avatar = $_SESSION['user_avatar'] ?? '/flowdesk_novo/assets/img/avatar.png';
+    $user_avatar = $_SESSION['user_avatar'] ?? '/assets/img/avatar.png';
 
     $mod = $_GET['mod'] ?? 'dashboard';
     $module_titles = [
@@ -91,6 +81,18 @@ $mod = $_GET['mod'] ?? 'home';
 
     <!-- Conteúdo principal -->
     <main class="col py-3 px-4 bg-light" id="painel_content">
+      <!-- Menu Mobile Toggle -->
+      <div class="d-lg-none" id="mobileTopbar">
+        <div class="d-flex align-items-center justify-content-between px-3 py-2">
+          <div class="d-flex align-items-center" id="mobileBrand">
+            <img src="/assets/img/icon.png" alt="Logo" width="32" class="me-2" />
+            <span class="fw-bold text-light">Flow Desk</span>
+          </div>
+          <button class="btn btn-light" id="menuToggle" aria-label="Abrir menu" style="box-shadow: none;">
+            <i class="bi bi-list" style="font-size: 1rem; color: #fff;"></i>
+          </button>
+        </div>
+      </div>
       <!-- Topbar do conteúdo -->
       <div class="d-flex align-items-center justify-content-between gap-3 pb-3 topbar-conteudo">
         <h4 class="m-0 fw-bold text-bg-d"><?= htmlspecialchars($mod_name) ?></h4>
@@ -103,7 +105,7 @@ $mod = $_GET['mod'] ?? 'home';
           </a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
             <li>
-              <a class="dropdown-item" href="/flowdesk_novo/modules/configuracoes.php">
+              <a class="dropdown-item" href="/modules/configuracoes.php">
                 <i class="bi bi-gear me-2"></i>Configurações
               </a>
             </li>
@@ -111,7 +113,7 @@ $mod = $_GET['mod'] ?? 'home';
               <hr class="dropdown-divider">
             </li>
             <li>
-              <a href="/flowdesk_novo/actions/logout.php" class="dropdown-item">
+              <a href="/actions/logout.php" class="dropdown-item">
                 <i class="bi bi-box-arrow-right me-2"></i>Sair
               </a>
             </li>

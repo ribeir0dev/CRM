@@ -50,10 +50,12 @@ if (formCriar) {
 // JS Menu
 const menuBtn = document.getElementById('menuToggle');
 const sidebar = document.getElementById('sidebar');
+const mobileBrand = document.getElementById('mobileBrand');
 
 if (menuBtn && sidebar) {
   menuBtn.addEventListener('click', function () {
     sidebar.classList.toggle('show');
+    
   });
 
   // Opcional: fecha menu ao clicar fora no mobile
@@ -66,6 +68,7 @@ if (menuBtn && sidebar) {
       !menuBtn.contains(e.target)
     ) {
       sidebar.classList.remove('show');
+
     }
   });
 }
@@ -128,4 +131,104 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  function formatBR(dateStr) {
+    if (!dateStr) return '—/—/----';
+    const [y, m, d] = dateStr.split('-');
+    return `${d}/${m}/${y}`;
+  }
+
+  const inicioInput = document.getElementById('dataInicioProjeto');
+  const entregaInput = document.getElementById('dataEntregaProjeto');
+
+  const inicioLabel = document.getElementById('labelDataInicioProjeto');
+  const entregaLabel = document.getElementById('labelDataEntregaProjeto');
+
+  if (inicioInput) {
+    inicioInput.addEventListener('change', function () {
+      inicioLabel.textContent = formatBR(this.value);
+    });
+  }
+  if (entregaInput) {
+    entregaInput.addEventListener('change', function () {
+      entregaLabel.textContent = formatBR(this.value);
+    });
+  }
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  var colEdit  = document.getElementById('editTarefaColunaSelect');
+  var colEditH = document.getElementById('editTarefaColuna');
+  if (colEdit && colEditH) {
+    colEdit.addEventListener('change', function () {
+      colEditH.value = this.value;
+    });
+  }
+
+  var modalEditar = document.getElementById('modalEditarTarefa');
+  if (modalEditar) {
+    modalEditar.addEventListener('show.bs.modal', function (event) {
+      var button = event.relatedTarget;
+      if (!button) return;
+
+      var tarefaId   = button.getAttribute('data-id');
+      var titulo     = button.getAttribute('data-titulo') || '';
+      var descricao  = button.getAttribute('data-descricao') || '';
+      var coluna     = button.getAttribute('data-coluna') || 'backlog';
+
+      document.getElementById('editTarefaId').value        = tarefaId;
+      document.getElementById('editTarefaTitulo').value    = titulo;
+      document.getElementById('editTarefaDescricao').value = descricao;
+      colEdit.value  = coluna;
+      colEditH.value = coluna;
+    });
+  }
+});
+
+
+let kanbanDragId = null;
+
+function kanbanDrag(ev) {
+  kanbanDragId = ev.target.getAttribute('data-id');
+  ev.dataTransfer.effectAllowed = 'move';
+}
+
+function kanbanAllowDrop(ev) {
+  ev.preventDefault();
+  ev.dataTransfer.dropEffect = 'move';
+}
+
+function kanbanDrop(ev) {
+  ev.preventDefault();
+  const colunaEl = ev.currentTarget; // card-body da coluna
+  const coluna   = colunaEl.getAttribute('data-coluna');
+  if (!kanbanDragId || !coluna) return;
+
+  // move visualmente
+  const item = document.querySelector('.kanban-item[data-id="' + kanbanDragId + '"]');
+  if (item && colunaEl) {
+    colunaEl.appendChild(item);
+  }
+
+  // atualiza no servidor via AJAX
+  fetch('/actions/mover_tarefa.php', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+    body: new URLSearchParams({
+      tarefa_id: kanbanDragId,
+      coluna: coluna
+    })
+  }).then(function (r) {
+    // opcional: tratar erro, recarregar, etc.
+  }).catch(function () {
+    // em caso de erro, você pode recarregar a página
+  });
+
+  kanbanDragId = null;
+}
+
 

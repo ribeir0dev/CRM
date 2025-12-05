@@ -8,9 +8,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt = $pdo->prepare("DELETE FROM financeiro_saidas WHERE id = ?");
         $stmt->execute([$id]);
     }
-    header('Location: /flowdesk_novo/modules/painel.php?mod=financeiro');
+    header('Location: /modules/painel.php?mod=financeiro');
     exit;
 }
 
-header('Location: /flowdesk_novo/modules/painel.php?mod=financeiro');
+header('Location: /modules/painel.php?mod=financeiro');
 exit;

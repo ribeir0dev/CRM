@@ -10,6 +10,10 @@
   z-index: 1100;
 }
 
+.fs-10{
+  font-size: 10px;
+}
+
 /* Conteúdo principal do painel (desktop) */
 @media (min-width: 992px) {
   #painel_content {
@@ -28,12 +32,6 @@
   background: #28272c;
 }
 
-/* Espaço no conteúdo p/ barra mobile */
-@media (max-width: 991.98px) {
-  #painel_content {
-    margin-top: 56px; /* ajuste conforme altura da topbar */
-  }
-}
 
 
 /* ========================================
@@ -53,17 +51,13 @@
     box-shadow: 0 0 20px #0006;
   }
 
+
   .sidebar.show {
     left: 0;
   }
 
   .bg-painel {
     background: #f5f7ff;
-  }
-
-  /* Garante que o painel não fique escondido atrás do menu */
-  #painel_content {
-    margin-top: 56px;
   }
 }
 
@@ -74,11 +68,14 @@
 
 /* Faixa do topo dentro do main */
 .topbar-conteudo {
-  background: #28272c;            /* cor da faixa */
+  background: #28272c;
+  /* cor da faixa */
   border-bottom: 1px solid #e0e4ff;
   padding: 12px 20px;
-  margin: -16px -24px 24px -24px; /* cola nas laterais do main */
+  margin: -16px -24px 24px -24px;
+  /* cola nas laterais do main */
 }
+
 
 .usuario {
   color: #fff !important;
@@ -90,6 +87,21 @@
   line-height: 1;
 }
 
+@media (max-width: 991.98px){
+  #mobileTopbar{
+      margin: -16px -24px 24px -24px;
+  }
+
+  .topbar-conteudo {
+  background: #28272c;
+  /* cor da faixa */
+  border-bottom: 1px solid #e0e4ff;
+  padding: 12px 20px;
+  margin: -25px -24px 24px -24px;
+  /* cola nas laterais do main */
+}
+
+}
 
 /* ========================================
    TIPOGRAFIA / TEXTOS ESPECIAIS
@@ -97,11 +109,9 @@
 
 /* Texto com gradiente */
 .text-bg-d {
-  background: linear-gradient(
-    93deg,
-    rgba(112, 74, 253, 1) 0%,
-    rgba(51, 171, 255, 1) 60%
-  );
+  background: linear-gradient(93deg,
+      rgba(112, 74, 253, 1) 0%,
+      rgba(51, 171, 255, 1) 60%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -116,10 +126,14 @@
 /* Input de mês oculto para showPicker(), posicionado sob o botão */
 .input-mes-oculto {
   position: absolute;
-  top: 100%;           /* logo abaixo do botão */
-  left: 0;             /* alinhado com o botão */
-  opacity: 0;          /* invisível, mas mantém posição */
-  pointer-events: none;/* evita clique direto */
+  top: 100%;
+  /* logo abaixo do botão */
+  left: 0;
+  /* alinhado com o botão */
+  opacity: 0;
+  /* invisível, mas mantém posição */
+  pointer-events: none;
+  /* evita clique direto */
 }
 
 /* Campo de busca com ícone de lupa à esquerda */
@@ -140,7 +154,8 @@
 
 .search-input {
   width: 100%;
-  padding-left: 1.6rem;   /* espaço para a lupa */
+  padding-left: 1.6rem;
+  /* espaço para a lupa */
   padding-right: 0.5rem;
   padding-top: 0.15rem;
   padding-bottom: 0.15rem;
@@ -187,8 +202,10 @@
 
 /* Botões de status na listagem de tarefas */
 .filtros-tarefas .btn-status {
-  margin-right: 0.5rem;      /* espaço entre botões */
-  margin-bottom: 0.35rem;    /* caso quebre linha no mobile */
+  margin-right: 0.5rem;
+  /* espaço entre botões */
+  margin-bottom: 0.35rem;
+  /* caso quebre linha no mobile */
   background: #f8f9fb;
   border: 1px solid rgba(15, 23, 42, 0.08);
   color: #4b5563;
@@ -230,15 +247,18 @@
 
 /* Variações de fundo por tipo de cliente */
 .cliente-card.cliente-masculino {
-  background-color: #e3f2ff; /* masculino: azul claro */
+  background-color: #e3f2ff;
+  /* masculino: azul claro */
 }
 
 .cliente-card.cliente-feminino {
-  background-color: #ffe4f1; /* feminino: rosa claro */
+  background-color: #ffe4f1;
+  /* feminino: rosa claro */
 }
 
 .cliente-card.cliente-empresa {
-  background-color: #fff7d6; /* empresa: amarelo claro */
+  background-color: #fff7d6;
+  /* empresa: amarelo claro */
 }
 
 /* Hover do card de cliente */
@@ -288,7 +308,8 @@
 
 /* Tabela da área financeira */
 .table-financeiro {
-  font-size: 0.8rem; /* ~12.8px se base for 16px */
+  font-size: 0.8rem;
+  /* ~12.8px se base for 16px */
 }
 
 .table-financeiro th {

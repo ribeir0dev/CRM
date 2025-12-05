@@ -4,7 +4,7 @@
 <div class="modal fade" id="modalNovaSaida" tabindex="-1" aria-labelledby="modalNovaSaidaLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-      <form method="post" action="/flowdesk_novo/actions/adicionar_saida.php" id="form-nova-saida">
+      <form method="post" action="/actions/adicionar_saida.php" id="form-nova-saida">
         <div class="modal-header">
           <h5 class="modal-title" id="modalNovaSaidaLabel">Adicionar saída</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>

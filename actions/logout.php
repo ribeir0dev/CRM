@@ -18,5 +18,5 @@ if (ini_get("session.use_cookies")) {
 }
 
 // Redireciona para a página de login
-header('Location: /flowdesk_novo/index.php');
+header('Location: /index.php');
 exit;

@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $concluido  = ($tipo === 'integral' && $valor_recib >= $valor_rec) ? 1 : 0;
 
     if ($descricao === '' || $valor_rec <= 0) {
-        header('Location: /flowdesk_novo/modules/painel.php?mod=financeiro&erro=1');
+        header('Location: /modules/painel.php?mod=financeiro&erro=1');
         exit;
     }
 
@@ -50,9 +50,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     ]);
 
 
-    header('Location: /flowdesk_novo/modules/painel.php?mod=financeiro&ok=1');
+    header('Location: /modules/painel.php?mod=financeiro&ok=1');
     exit;
 }
 
-header('Location: /flowdesk_novo/modules/painel.php?mod=financeiro');
+header('Location: /modules/painel.php?mod=financeiro');
 exit;

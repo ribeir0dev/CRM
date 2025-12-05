@@ -3,7 +3,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) session_start();
 require_once __DIR__ . '/../inc/conf/db.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: /flowdesk_novo/modules/painel.php?mod=clientes');
+    header('Location: /modules/painel.php?mod=clientes');
     exit;
 }
 
@@ -39,5 +39,5 @@ $stmt = $pdo->prepare("
 $stmt->execute([$cliente_id, $slug, $titulo, $conteudoJson, $compartilhado]);
 
 
-header('Location: /flowdesk_novo/modules/painel.php?mod=clientes&id=' . $cliente_id . '&ok_bloco=1');
+header('Location: /modules/painel.php?mod=clientes&id=' . $cliente_id . '&ok_bloco=1');
 exit;

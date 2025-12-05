@@ -4,7 +4,7 @@
 <div class="modal fade" id="modalNovoCliente" tabindex="-1" aria-labelledby="modalNovoClienteLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
-      <form method="post" action="/flowdesk_novo/actions/cadastrar_cliente.php" id="form-novo-cliente">
+      <form method="post" action="/actions/cadastrar_cliente.php" id="form-novo-cliente">
         <div class="modal-header">
           <h5 class="modal-title" id="modalNovoClienteLabel">Adicionar cliente</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
