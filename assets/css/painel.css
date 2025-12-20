@@ -703,4 +703,43 @@ main#painel_content {
 .sensitive-blur {
   filter: blur(15px);
   opacity: 0.4;
+}
+
+#mods-container {
+  position: relative;
+  overflow: hidden;
+}
+
+/* view do módulo atual */
+.mod-view {
+  position: relative;
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+  transition: opacity 0.35s ease, transform 0.35s ease, filter 0.35s ease;
+}
+
+/* estado ativo (só pra semântica) */
+.mod-view.mod-ativo {
+  opacity: 1;
+}
+
+/* estado saindo: slide down + blur */
+.mod-view.mod-saindo {
+  opacity: 0;
+  transform: translateY(40px);
+  filter: blur(8px);
+}
+
+/* estado entrando: começa de baixo e desblurado no final */
+.mod-view.mod-entrando {
+  opacity: 0;
+  transform: translateY(-40px);
+  filter: blur(8px);
+}
+
+.mod-view.mod-entrando.mod-ativo {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
 }/*# sourceMappingURL=painel.css.map */

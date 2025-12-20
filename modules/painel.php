@@ -198,16 +198,22 @@ $mod = $_GET['mod'] ?? 'dashboard';
 
 
       <!-- Área de conteúdo dinâmico -->
-      <div class="p-3">
-        <?php
-        $mod_file = __DIR__ . '/content/' . $mod . '.php';
-        if (file_exists($mod_file)) {
-          include $mod_file;
-        } else {
-          echo '<p class="text-muted">Selecione um módulo para iniciar.</p>';
-        }
-        ?>
-      </div>
+      <!-- Área de conteúdo dinâmico com transição -->
+<div id="mods-container" class="p-3">
+  <div id="mod-content" class="mod-view mod-ativo">
+
+    <?php
+    $mod_file = __DIR__ . '/content/' . $mod . '.php';
+    if (file_exists($mod_file)) {
+      include $mod_file;
+    } else {
+      echo '<p class="text-muted">Selecione um módulo para iniciar.</p>';
+    }
+    ?>
+
+  </div>
+</div>
+
     </main>
   </div> <!-- row -->
 </div> <!-- container -->

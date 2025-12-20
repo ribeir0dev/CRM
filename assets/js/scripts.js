@@ -578,3 +578,95 @@ document.addEventListener('click', async function (e) {
     return;
   }
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const modsContainer = document.getElementById('mods-container');
+  const modContent    = document.getElementById('mod-content');
+  if (!modsContainer || !modContent) return;
+
+  // intercepta cliques nos links de mod do menu
+  document.querySelectorAll('.sv-menu-item[href*="painel.php?mod="]').forEach(link => {
+    link.addEventListener('click', async (e) => {
+      e.preventDefault();
+
+      const url = new URL(link.href, window.location.origin);
+      const novoMod = url.searchParams.get('mod') || 'dashboard';
+
+      // evita recarregar o mesmo mod
+      const atualMod = new URL(window.location.href).searchParams.get('mod') || 'dashboard';
+      if (novoMod === atualMod) return;
+
+      await trocarModComAnimacao(novoMod, link.href);
+
+      // atualiza URL no navegador (sem recarregar)
+      window.history.pushState({ mod: novoMod }, '', link.href);
+
+      // atualiza highlight do menu
+      document.querySelectorAll('.sv-menu-item').forEach(a => {
+        a.classList.toggle('sv-menu-item--active', a === link);
+      });
+    });
+  });
+
+  // suporta voltar/avançar do navegador
+  window.addEventListener('popstate', async (event) => {
+    const url = new URL(window.location.href);
+    const mod = url.searchParams.get('mod') || 'dashboard';
+    const targetHref = `painel.php?mod=${encodeURIComponent(mod)}`;
+
+    await trocarModComAnimacao(mod, targetHref);
+
+    // atualizar highlight
+    document.querySelectorAll('.sv-menu-item').forEach(a => {
+      const aMod = new URL(a.href, window.location.origin).searchParams.get('mod');
+      a.classList.toggle('sv-menu-item--active', aMod === mod);
+    });
+  });
+
+  async function trocarModComAnimacao(novoMod, href) {
+    // anima saída
+    modContent.classList.add('mod-saindo');
+    modContent.classList.remove('mod-ativo');
+
+    await new Promise(resolve => {
+      const handler = () => {
+        modContent.removeEventListener('transitionend', handler);
+        resolve();
+      };
+      modContent.addEventListener('transitionend', handler, { once: true });
+      // fallback se não disparar
+      setTimeout(resolve, 400);
+    });
+
+    // busca só o conteúdo do novo módulo
+    let htmlNovo = '';
+    try {
+      const resp = await fetch(href, { headers: { 'X-Requested-With': 'XMLHttpRequest' } });
+      const texto = await resp.text();
+
+      // extrai só a parte dentro de #mod-content (servidor retorna a página toda)
+      const tmp = document.createElement('div');
+      tmp.innerHTML = texto;
+      const novoInner = tmp.querySelector('#mod-content');
+      htmlNovo = novoInner ? novoInner.innerHTML : texto;
+    } catch (err) {
+      console.error(err);
+      htmlNovo = '<p class="text-muted">Erro ao carregar módulo.</p>';
+    }
+
+    // aplica conteúdo novo e anima entrada
+    modContent.innerHTML = htmlNovo;
+    modContent.classList.remove('mod-saindo');
+    modContent.classList.add('mod-entrando');
+
+    // força reflow para a transição
+    void modContent.offsetHeight;
+
+    modContent.classList.add('mod-ativo');
+
+    modContent.addEventListener('transitionend', () => {
+      modContent.classList.remove('mod-entrando');
+    }, { once: true });
+  }
+});
